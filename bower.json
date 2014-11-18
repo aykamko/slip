@@ -1,10 +1,11 @@
 {
   "name": "slip",
   "main": "slip.js",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "homepage": "http://pornel.net/slip/",
   "authors": [
-    "pornel@pornel.net"
+    "pornel@pornel.net",
+    "aleks@alekskamko.com"
   ],
   "description": "A tiny library for interactive swiping and reordering of elements in lists on touch screens",
   "keywords": [

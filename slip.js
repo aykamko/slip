@@ -331,8 +331,13 @@ window['Slip'] = (function(){
                 var mouseOutsideTimer;
                 var zero = this.target.node.offsetTop + this.target.height/2;
                 var otherNodes = [];
+                var childTagName = this.options.childTagName ? this.options.childTagName.toLowerCase() : null;
                 var nodes = this.container.childNodes;
-                for(var i=0; i < nodes.length; i++) {
+                for (var i=0; i < nodes.length; i++) {
+
+                    if (childTagName && nodes[i].tagName.toLowerCase() == childTagName) {
+                      continue;
+                    }
 
                     if (nodes[i].nodeType === 1) {
                         listCount++;
@@ -715,9 +720,10 @@ window['Slip'] = (function(){
 
         getSiblings: function(target) {
             var siblings = [];
+            var childTagName = this.options.childTagName ? this.options.childTagName.toLowerCase() : null;
             var tmp = target.node.nextSibling;
             while(tmp) {
-                if (tmp.nodeType == 1) siblings.push({
+                if (tmp.nodeType == 1 && tmp.tagName.toLowerCase() == childTagName) siblings.push({
                     node: tmp,
                     baseTransform: getTransform(tmp),
                 });
